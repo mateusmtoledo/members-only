@@ -2,3 +2,19 @@ extends layout
 
 block content
   h2 Welcome to Members Only!
+  if currentUser
+    a(href="/new-post") New post
+    div.posts
+      for post in posts
+        div.post
+          h3= post.title
+          p= post.text
+          if(currentUser.membershipStatus !== 'Guest')
+            p= `Author: ${post.author.fullName}`
+            p= new Date(post.timestamp).toLocaleString()
+  else
+    p
+      a(href="/sign-up") Sign up
+      |  or 
+      a(href="log-in") Log in
+      |  to read and write posts

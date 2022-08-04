@@ -3,10 +3,14 @@ var router = express.Router();
 
 const signUpController = require('../controllers/signUpController');
 const logInController = require('../controllers/logInController');
+const newPostController = require('../controllers/newPostController');
+const Post = require('../models/Post');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  Post.find({}).populate('author').exec((err, posts) => {
+    res.render('index', { posts });
+  });
 });
 
 router.get('/sign-up', signUpController.signUpGet);
@@ -25,5 +29,9 @@ router.get("/log-out", (req, res) => {
     res.redirect("/");
   });
 });
+
+router.get("/new-post", newPostController.newPostGet);
+
+router.post("/new-post", newPostController.newPostPost);
 
 module.exports = router;

@@ -8,7 +8,10 @@ html
     header
       h1 members only
       div
-        a(href="/sign-up") Sign up
-        a(href="/log-in") Log in
+        if currentUser
+          p= `Welcome, ${currentUser.firstName}!`
+        else
+          a(href="/sign-up") Sign up
+          a(href="/log-in") Log in
     main
       block content

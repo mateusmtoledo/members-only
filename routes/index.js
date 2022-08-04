@@ -17,4 +17,13 @@ router.get('/log-in', logInController.logInGet);
 
 router.post('/log-in', logInController.logInPost);
 
+router.get("/log-out", (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
+
 module.exports = router;

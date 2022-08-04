@@ -10,7 +10,9 @@ html
       div
         if currentUser
           p= `Welcome, ${currentUser.firstName}!`
-          a(href="log-out") Log out
+          a(href="/log-out") Log out
+          if currentUser.membershipStatus === 'Guest'
+            a(href="/become-a-member") Become a member
         else
           a(href="/sign-up") Sign up
           a(href="/log-in") Log in

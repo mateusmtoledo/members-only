@@ -33,7 +33,6 @@ passport.use(
         return;
       }
       if (!user) {
-        console.log('Incorrect username');
         return done(null, false, { message: "Incorrect username" });
       }
       bcrypt.compare(password, user.password, (err, res) => {
@@ -41,10 +40,8 @@ passport.use(
           return done(err);
         }
         if (res) {
-          console.log('Logged in');
           return done(null, user);
         } else {
-          console.log('Incorrect password');
           return done(null, false, { message: "Incorrect password" });
         }
       });

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h2 Become a member
+  if currentUser
+    if currentUser.membershipStatus === 'Guest'
+      form(action="", method="post") 
+        label(for="secret") To become a member, you must type in a super secret password
+        input(tpye="text", name="secret" id="secret")
+        button Submit
+      if errors
+        ul
+          for error in errors
+            li= error.msg
+    else
+      p You are already a member or an admin.
+  else
+    p
+      | You must 
+      a(href="/log-in") log in
+      |  to become a member.

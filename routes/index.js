@@ -4,6 +4,7 @@ var router = express.Router();
 const signUpController = require('../controllers/signUpController');
 const logInController = require('../controllers/logInController');
 const newPostController = require('../controllers/newPostController');
+const becomeAMemberController = require('../controllers/becomeAMemberController');
 const Post = require('../models/Post');
 
 /* GET home page. */
@@ -33,5 +34,9 @@ router.get("/log-out", (req, res) => {
 router.get("/new-post", newPostController.newPostGet);
 
 router.post("/new-post", newPostController.newPostPost);
+
+router.get("/become-a-member", becomeAMemberController.becomeAMemberGet);
+
+router.post("/become-a-member", becomeAMemberController.becomeAMemberPost);
 
 module.exports = router;

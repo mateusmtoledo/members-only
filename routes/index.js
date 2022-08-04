@@ -5,6 +5,7 @@ const signUpController = require('../controllers/signUpController');
 const logInController = require('../controllers/logInController');
 const newPostController = require('../controllers/newPostController');
 const becomeAMemberController = require('../controllers/becomeAMemberController');
+const deletePostController = require('../controllers/deletePostController');
 const Post = require('../models/Post');
 
 /* GET home page. */
@@ -38,5 +39,9 @@ router.post("/new-post", newPostController.newPostPost);
 router.get("/become-a-member", becomeAMemberController.becomeAMemberGet);
 
 router.post("/become-a-member", becomeAMemberController.becomeAMemberPost);
+
+router.get("/delete-post/:postId", deletePostController.deletePostGet);
+
+router.post("/delete-post/:postId", deletePostController.deletePostPost);
 
 module.exports = router;

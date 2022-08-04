@@ -12,6 +12,8 @@ block content
           if(currentUser.membershipStatus !== 'Guest')
             p= `Author: ${post.author.fullName}`
             p= new Date(post.timestamp).toLocaleString()
+          if(currentUser.membershipStatus === 'Admin')
+            a(href="/delete-post/" + post._id) Delete
   else
     p
       a(href="/sign-up") Sign up

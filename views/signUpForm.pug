@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  form(action="", method="post") 
+    h2 Sign Up
+    ul
+      li
+        label(for="first-name") First name:
+        input(type="text", name="firstName", id="first-name")
+      li
+        label(for="last-name") Last name:
+        input(type="text", name="lastName", id="last-name")
+      li
+        label(for="user-name") Username:
+        input(type="text", name="username", id="user-name")
+      li
+        label(for="password") Password:
+        input(type="password", name="password", id="password")
+      li
+        label(for="confirm-password") Confirm password:
+        input(type="password", name="confirmPassword", id="confirm-password")
+    button Submit
+    
+  if errors
+    for error in errors
+      p= error.msg

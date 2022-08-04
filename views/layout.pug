@@ -1,7 +1,14 @@
 doctype html
 html
   head
-    title= title
+    title Members Only
+    meta(charset="utf-8")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header
+      h1 members only
+      div
+        a(href="/sign-up") Sign up
+        a(href="/log-in") Log in
+    main
+      block content

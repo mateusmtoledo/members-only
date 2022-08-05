@@ -12,7 +12,7 @@ exports.newPostPost = [
   (req, res, next) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
-      res.render('newPostForm', { errors });
+      res.render('newPostForm', { errors: errors.array() });
       return;
     }
     new Post({

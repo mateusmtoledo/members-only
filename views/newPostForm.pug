@@ -1,24 +1,24 @@
 extends layout
 
 block content
-  h2 New post
-  if currentUser
-    form(action="", method="post")
-      ul
-        li
-          label(for="title") Title:
-          input(type="text", name="title", id="title")
-        li
-          label(for="post-text") Text:
-          textarea(name="text", id="post-text")
-      button Submit
-    if errors
-      ul
-      for error in errors
-        li= error.msg
-
-  else
-    p 
-      | You must 
-      a(href="/log-in") log in
-      |  to create posts
+  div.form
+    h2 New post
+    if currentUser
+      form(action="", method="post")
+        ul
+          li
+            label(for="title") Title:
+            input(type="text", name="title", id="title")
+          li
+            label(for="post-text") Text:
+            textarea(name="text", id="post-text")
+        button Submit
+      if errors
+        ul.errors
+          for error in errors
+            li= error.msg
+    else
+      p 
+        | You must 
+        a(href="/log-in") log in
+        |  to create posts

@@ -23,17 +23,22 @@ header {
   justify-content: space-between;
   padding: 8px;
   align-items: center;
+  box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+  z-index: 1;
 }
 
 main {
   background-color: #F7F7F7;
   flex: 1;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .posts {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  padding: 32px;
   gap: 32px;
 }
 
@@ -55,8 +60,8 @@ h3 {
 
 .new-post {
   position: fixed;
-  bottom: 32px;
-  right: 32px;
+  bottom: 16px;
+  right: 16px;
 }
 
 .new-post img {
@@ -127,12 +132,81 @@ h3 {
   width: 16px;
 }
 
+.not-logged-in,
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 8px;
+  max-width: 500px;
+  min-height: 300px;
+  text-align: center;
+  flex: 1;
+}
+
+h2 {
+  margin-bottom: 16px;
+}
+
+.form {
+  text-align: start;
+}
+
+.form ul {
+  list-style-type: none;
+}
+
+.form li {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+}
+
+.form button {
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid black;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.form textarea {
+  min-height: 10rem;
+  resize: none;
+}
+
+.not-logged-in .call-to-action {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 16px;
+}
+
+.not-logged-in a {
+  text-decoration: none;
+}
+
+.not-logged-in a:hover {
+  text-decoration: underline;
+}
+
+.form .errors {
+  list-style: circle inside;
+  color: red;
+}
+
+.errors li {
+  display: list-item;
+}
+
 @media (max-width: 450px) {
   h1 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
-  .posts {
+  main {
     padding: 8px;
   }
 

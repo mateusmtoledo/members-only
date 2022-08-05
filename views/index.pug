@@ -12,8 +12,11 @@ block content
           h3= post.title
           p= post.text
           if(currentUser.membershipStatus !== 'Guest')
-            p= `Author: ${post.author.fullName}`
-            p= new Date(post.timestamp).toLocaleString()
+            p
+              strong Author:
+              |  #{post.author.fullName}
+            p
+              strong= new Date(post.timestamp).toLocaleString('en-UK', { year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit'})
           if(currentUser.membershipStatus === 'Admin')
             a(href="/delete-post/" + post._id) Delete
   else

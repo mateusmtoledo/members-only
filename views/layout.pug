@@ -3,18 +3,31 @@ html
   head
     title Members Only
     meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="/javascripts/menu.js", defer=true) 
   body
     header
       h1 members only
-      div
-        if currentUser
-          p= `Welcome, ${currentUser.firstName}!`
-          a(href="/log-out") Log out
-          if currentUser.membershipStatus === 'Guest'
-            a(href="/become-a-member") Become a member
-        else
-          a(href="/sign-up") Sign up
-          a(href="/log-in") Log in
+      button.menu-button
+        img(src="/images/user.svg", alt="User menu")
+        div#menu
+          if currentUser
+            p Welcome,
+              br
+              strong #{currentUser.firstName}!
+            a(href="/log-out")
+              img(src="/images/log-out.svg", alt="Log out")
+              p Log out
+            if currentUser.membershipStatus === 'Guest'
+              a(href="/become-a-member")
+                p Become a member
+          else
+            a(href="/sign-up")
+              img(src="/images/sign-up.svg", alt="Sign up")
+              p Sign up
+            a(href="/log-in")
+              img(src="/images/log-in.svg", alt="Log in")
+              p Log in
     main
       block content

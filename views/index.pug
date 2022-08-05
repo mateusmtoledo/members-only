@@ -1,9 +1,11 @@
 extends layout
 
 block content
-  h2 Welcome to Members Only!
   if currentUser
-    a(href="/new-post") New post
+    a.new-post(href="/new-post")
+      button(type="button")
+        img(src="/images/plus.svg", alt="Create new post")
+        | New post
     div.posts
       for post in posts
         div.post

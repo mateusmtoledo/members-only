@@ -1,8 +1,142 @@
+:root {
+  font-size: 16px;
+}
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
-  color: #00B7FF;
+  color: inherit;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  align-items: center;
+}
+
+main {
+  background-color: #F7F7F7;
+  flex: 1;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  padding: 32px;
+  gap: 32px;
+}
+
+.post {
+  padding: 32px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.new-post {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+}
+
+.new-post img {
+  width: 24px;
+}
+
+.new-post button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 40%) 2px 2px 4px, rgb(0 0 0 / 30%) 4px 4px 13px -3px, rgb(0 0 0 / 20%) -2px -3px 0px inset;
+  border: 1px solid #00000059;
+  font-size: 1.2rem;
+}
+
+.new-post button:active {
+  box-shadow: rgb(0 0 0 / 30%) 4px 4px 13px -3px;
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+.new-post a {
+  text-decoration: none;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-button img {
+  width: 42px;
+}
+
+#menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 8px;
+  width: max-content;
+  height: max-content;
+  background-color: white;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+  border: 1px solid #00000059;
+  cursor: default;
+}
+
+#menu a {
+  display: flex;
+  gap: 8px;
+}
+
+#menu img {
+  width: 16px;
+}
+
+@media (max-width: 450px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .posts {
+    padding: 8px;
+  }
+
+  .post {
+    padding: 8px;
+  }
 }
